@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 import android.util.Log;
 
+import com.example.movieinfo.Adapter.MoviesAdapter;
 import com.example.movieinfo.Model.Movie;
 import com.example.movieinfo.Model.MovieResponse;
 import com.example.movieinfo.MovieApiService;
@@ -58,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<MovieResponse> call, Response<MovieResponse> response) {
                 List<Movie> movies = response.body().getResults();
-               // recyclerView.setAdapter(new MoviesAdapter(movies,R.layout.list_item_movie),getApplicationContext());
+                recyclerView.setAdapter(new MoviesAdapter(movies,R.layout.item_rv,getApplicationContext()));
                 Log.d(TAG,"Number os movies received: "+movies.size());
             }
 
